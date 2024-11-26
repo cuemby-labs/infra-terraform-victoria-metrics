@@ -1,16 +1,16 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schema for Ingress-NGINX template .
+  title: OpenAPI schema for template .
 components:
   schemas:
     variables:
       type: object
       properties:
-        release_name:
-          title: Release Name
+        helm_release_name:
+          title: Helm Release Name
           type: string
           description: The name of the Helm release.
-          default: ingress-nginx
+          default: victoria-metrics-single
           x-walrus-ui:
             group: Basic
             order: 1
@@ -18,15 +18,15 @@ components:
           title: Namespace Name
           type: string
           description: The namespace where the Helm release will be installed.
-          default: kube-system
+          default: victoria-system
           x-walrus-ui:
             group: Basic
             order: 2
-        chart_version:
-          title: Chart Version
+        helm_chart_version:
+          title: Helm Chart Version
           type: string
           description: The version of the ingress-nginx Helm chart.
-          default: 4.11.2
+          default: 0.9.22
           x-walrus-ui:
             group: Basic
             order: 3
