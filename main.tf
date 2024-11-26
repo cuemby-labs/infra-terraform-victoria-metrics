@@ -2,7 +2,7 @@
 # Victoria Metrics Resources
 #
 
-resource "helm_release" "ingress_nginx" {
+resource "helm_release" "victoriametrics" {
   name       = var.helm_release_name
   namespace  = var.namespace_name
   repository = "https://victoriametrics.github.io/helm-charts/"
