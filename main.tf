@@ -1,8 +1,13 @@
 #
 # Victoria Metrics Resources
 #
+resource "kubernetes_namespace" "victoria_metrics" {
+  metadata {
+    name = var.namespace_name
+  }
+}
 
-resource "helm_release" "victoriametrics" {
+resource "helm_release" "victoria_metrics" {
   name       = var.helm_release_name
   namespace  = var.namespace_name
   repository = "https://victoriametrics.github.io/helm-charts/"
