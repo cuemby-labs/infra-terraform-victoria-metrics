@@ -13,7 +13,10 @@ resource "helm_release" "victoria_metrics" {
   repository = "https://victoriametrics.github.io/helm-charts/"
   chart      = "victoria-metrics-single"
   version    = var.helm_chart_version
-  values     = [file("${path.module}/values.yaml")]
+
+  values = [
+    yamlencode(var.values),
+  ]
 }
 
 #

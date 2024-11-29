@@ -20,6 +20,18 @@ variable "helm_chart_version" {
   default     = "0.9.22"
 }
 
+variable "set_custom_values" {
+  type = bool
+  description = "Set custom values"
+  default = false
+}
+
+variable "values" {
+  type = any
+  description = "Chart values"
+  default = {}
+}
+
 #
 # Contextual Fields
 #
