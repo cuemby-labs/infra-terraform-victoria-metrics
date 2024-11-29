@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schema for template .
+  title: OpenAPI schema for Victoria Metrics template .
 components:
   schemas:
     variables:
@@ -30,6 +30,24 @@ components:
           x-walrus-ui:
             group: Basic
             order: 3
+        set_custom_values:
+          title: Set Custom Values
+          type: boolean
+          description: Set custom values
+          default: false
+          x-walrus-ui:
+            group: Basic
+            order: 4
+        values:
+          title: Values
+          type: object
+          description: Chart values
+          default: {}
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 5
+            widget: YamlEditor
       x-walrus-ui:
         groupOrder:
         - Basic
