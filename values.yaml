@@ -1,4 +1,4 @@
- server:
+server:
   fullnameOverride: victoria-metrics
   scrape:
     enabled: true
