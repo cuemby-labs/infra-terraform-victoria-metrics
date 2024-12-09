@@ -38,6 +38,22 @@ variable "values" {
   default     = {}
 }
 
+variable "resources" {
+  description = "Resource limits and requests for the Helm release."
+  type        = map(map(string))
+
+  default = {
+    limits = {
+      cpu    = "500m"
+      memory = "512Mi"
+    }
+    requests = {
+      cpu    = "250m"
+      memory = "256Mi"
+    }
+  }
+}
+
 #
 # Contextual Fields
 #
