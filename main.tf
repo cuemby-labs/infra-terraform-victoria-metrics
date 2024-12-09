@@ -1,6 +1,7 @@
 #
 # Victoria Metrics Resources
 #
+
 resource "kubernetes_namespace" "victoria_metrics" {
   metadata {
     name = var.namespace_name
