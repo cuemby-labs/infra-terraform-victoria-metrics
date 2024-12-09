@@ -1,6 +1,7 @@
 #
 # Victoria Metrics Resources
 #
+
 resource "kubernetes_namespace" "victoria_metrics" {
   metadata {
     name = var.namespace_name
@@ -15,7 +16,15 @@ resource "helm_release" "victoria_metrics" {
   version    = var.helm_chart_version
 
   values = [
-    yamlencode(var.values),
+    templatefile("${path.module}/values.yaml.tpl", {
+      scrape_enabled   = var.scrape_enabled,
+      fullnameoverride = var.fullnameoverride,
+      request_memory   = var.resources["requests"]["memory"],
+      limits_memory    = var.resources["limits"]["memory"],
+      request_cpu      = var.resources["requests"]["cpu"],
+      limits_cpu       = var.resources["limits"]["cpu"]
+    }),
+    yamlencode(var.values)
   ]
 }
 
@@ -25,4 +34,10 @@ resource "helm_release" "victoria_metrics" {
 
 locals {
   context = var.context
+}
+
+module "submodule" {
+  source = "./modules/submodule"
+
+  message = "Hello, submodule"
 }
