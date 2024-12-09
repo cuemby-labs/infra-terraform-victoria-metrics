@@ -14,15 +14,21 @@ variable "namespace_name" {
   default     = "victoria-system"
 }
 
-variable "helm_chart_version" {
-  description = "The version of the ingress-nginx Helm chart."
+variable "fullnameoverride" {
+  description = "Overrides the full name of server component."
   type        = string
-  default     = "0.9.22"
+  default     = "victoria-metrics"
 }
 
-variable "set_custom_values" {
+variable "helm_chart_version" {
+  description = "The version for the Helm chart."
+  type        = string
+  default     = "0.13.0"
+}
+
+variable "scrape_enabled" {
   type = bool
-  description = "Set custom values"
+  description = "Enable scrape configuration"
   default = false
 }
 

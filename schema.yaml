@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schema for Victoria Metrics template .
+  title: OpenAPI schema for Victoria Metrics Single template .
 components:
   schemas:
     variables:
@@ -22,22 +22,30 @@ components:
           x-walrus-ui:
             group: Basic
             order: 2
-        helm_chart_version:
-          title: Helm Chart Version
+        fullnameoverride:
+          title: Fullnameoverride
           type: string
-          description: The version of the ingress-nginx Helm chart.
-          default: 0.9.22
+          description: Overrides the full name of server component.
+          default: victoria-metrics
           x-walrus-ui:
             group: Basic
             order: 3
-        set_custom_values:
-          title: Set Custom Values
-          type: boolean
-          description: Set custom values
-          default: false
+        helm_chart_version:
+          title: Helm Chart Version
+          type: string
+          description: The version for the Helm chart.
+          default: 0.13.0
           x-walrus-ui:
             group: Basic
             order: 4
+        scrape_enabled:
+          title: Scrape Enabled
+          type: boolean
+          description: Enable scrape configuration
+          default: false
+          x-walrus-ui:
+            group: Basic
+            order: 5
         values:
           title: Values
           type: object
@@ -46,7 +54,7 @@ components:
           x-walrus-ui:
             colSpan: 12
             group: Basic
-            order: 5
+            order: 6
             widget: YamlEditor
       x-walrus-ui:
         groupOrder:
