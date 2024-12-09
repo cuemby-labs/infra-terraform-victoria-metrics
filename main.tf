@@ -22,7 +22,8 @@ resource "helm_release" "victoria_metrics" {
       limits_memory    = var.resources["limits"]["memory"],
       request_cpu      = var.resources["requests"]["cpu"],
       limits_cpu       = var.resources["limits"]["cpu"]
-    })
+    }),
+    yamlencode(var.values)
   ]
 }
 
