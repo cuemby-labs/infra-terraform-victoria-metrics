@@ -27,15 +27,15 @@ variable "helm_chart_version" {
 }
 
 variable "scrape_enabled" {
-  type = bool
   description = "Enable scrape configuration"
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "values" {
-  type = any
   description = "Chart values"
-  default = {}
+  type        = any
+  default     = {}
 }
 
 #
