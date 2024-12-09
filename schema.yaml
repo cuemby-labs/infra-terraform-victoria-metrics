@@ -56,6 +56,27 @@ components:
             group: Basic
             order: 6
             widget: YamlEditor
+        resources:
+          title: Resources
+          type: object
+          description: Resource limits and requests for the Helm release.
+          default:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
+          additionalProperties:
+            additionalProperties:
+              type: string
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 7
       x-walrus-ui:
         groupOrder:
         - Basic
