@@ -69,7 +69,7 @@ No modules.
 | <a name="input_namespace_name"></a> [namespace_name](#input_namespace_name) | Namespace where the Helm Chart will be installed. | `string` | `"victoria-system"` | no |
 | <a name="input_release_name"></a> [release_name](#input_release_name) | Name for the Helm release. | `string` | `"victoria-metrics-single"` | no |
 | <a name="input_chart_version"></a> [chart_version](#input_chart_version) | Version for the Helm chart. | `string` | `"0.13.0"` | no |
-| <a name="input_scrape_enabled"></a> [scrape_enabled](#input_scrape_enabled) | Enable scrape configuration. | `string` | `false` | no |
+| <a name="input_scrape_enabled"></a> [scrape_enabled](#input_scrape_enabled) | Enable scrape configuration. | `bool` | `false` | no |
 | <a name="input_fullnameoverride"></a> [fullnameoverride](#input_fullnameoverride) | Overrides the full name of server component. | `string` | `victoria-metrics` | no |
 | <a name="input_resources"></a> [resources](#input_resources) | Resource limits and requests for helm Chart pods. | `map(map(string))` | `"See example"` | no |
 | <a name="input_context"></a> [context](#input\_context) | Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.<br><br>Examples:<pre>context:<br>  project:<br>    name: string<br>    id: string<br>  environment:<br>    name: string<br>    id: string<br>  resource:<br>    name: string<br>    id: string</pre> | `map(any)` | `{}` | no |
