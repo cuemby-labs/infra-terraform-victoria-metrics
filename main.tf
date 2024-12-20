@@ -2,10 +2,17 @@
 # Victoria Metrics Resources
 #
 
-resource "kubernetes_namespace" "victoria_metrics" {
+data "kubernetes_namespace" "victoria_system" {
   metadata {
     name = var.namespace_name
   }
+}
+
+resource "kubernetes_namespace" "victoria_system" {
+  metadata {
+    name = var.namespace_name
+  }
+  count = length(data.kubernetes_namespace.victoria_system.id) == 0 ? 1 : 0
 }
 
 resource "helm_release" "victoria_metrics" {
